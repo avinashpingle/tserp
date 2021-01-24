@@ -8,6 +8,6 @@ import com.testingshastra.erp.entity.Student;
 
 public interface StudentDao extends JpaRepository<Student, Integer> {
 
-	public List<Student> findByFname(String fname);
+	public List<Student> findByFirstName(String fname);
 
 }
