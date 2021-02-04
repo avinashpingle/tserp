@@ -50,5 +50,8 @@ public class MyController {
 		this.courseService.deleteCourse(courseId);
 	}
 	
-	
+	@GetMapping("/courses/getAllCourses")
+	public List<Course> getAllCourses() {
+		return this.courseService.getAllCourses();
+	}
 }
