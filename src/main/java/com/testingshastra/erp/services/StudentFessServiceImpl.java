@@ -47,15 +47,16 @@ public class StudentFessServiceImpl implements FeesService  {
 	@Override
 	public List<Fees> getFeesByDuration(Date fromDate, Date toDate) 
 	{
-		return  this.stdfessdao.getByDateDuration(fromDate, toDate);
+	//	return  this.stdfessdao.getByDateDuration(fromDate, toDate);
+		return this.stdfessdao.getByDateDuration(fromDate, toDate);
 		
 	}
 
 
 	@Override
-	public List<Fees> getStudentsWithPendingFeesByBatchId(int batchId) {
+	public List<Fees> getStudentsWithPendingFeesByBatchId() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.stdfessdao.getStudentsWithPendingFeesByBatchId();
 	}
 
 

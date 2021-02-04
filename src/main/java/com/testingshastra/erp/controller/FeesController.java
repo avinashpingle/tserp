@@ -1,11 +1,14 @@
 package com.testingshastra.erp.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.testingshastra.erp.entity.Fees;
@@ -35,5 +38,16 @@ public class FeesController {
 		return this.studentFessService.getAllStudentFess();
 	}
 	
-
+	@GetMapping(path="students/getFeesByDate/{datePaid}", produces="application/json")
+	public Fees getFeesByDate(@PathVariable @DateTimeFormat(pattern="yyyy-MM-dd") Date datePaid) 
+	{
+		return this.studentFessService.getFeesByDate(datePaid);
+	}
+	
+	@GetMapping(path="students/getFeesByDuration/{fromDate}/{toDate}", produces="application/json")
+	public List<Fees> getFeesByDuration(@PathVariable @DateTimeFormat(pattern="yyyy-MM-dd") Date fromDate, @PathVariable @DateTimeFormat(pattern="yyyy-MM-dd") Date toDate) 
+	{
+		return this.studentFessService.getFeesByDuration(fromDate, toDate);
+	}
+	
 }

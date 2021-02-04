@@ -1,9 +1,13 @@
 package com.testingshastra.erp.entity;
 
+import java.sql.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 
 @Entity
@@ -16,7 +20,8 @@ public class Student {
 	private String lastName;
 	private String emailId;
 	private String phone;
-	private String dob;
+	@JsonFormat(pattern="yyyy-MM-dd")
+	private Date dob;
 	private int batchId;
 	private float feesBalance;
 	private int courseId;
@@ -50,10 +55,10 @@ public class Student {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public String getDob() {
+	public Date getDob() {
 		return dob;
 	}
-	public void setDob(String dob) {
+	public void setDob(Date dob) {
 		this.dob = dob;
 	}
 	public int getBatchId() {
