@@ -50,4 +50,15 @@ public class FeesController {
 		return this.studentFessService.getFeesByDuration(fromDate, toDate);
 	}
 	
+	@GetMapping(path="students/feesByStudentId/{id}", produces="application/json")
+	public Object getStudentFessDetailsById(@PathVariable int id)
+	{
+		return this.studentFessService.getStudentFessDetailsById(id);
+	}
+	
+	@GetMapping(path="students/studentDetailsWithPendingFees", produces="application/json")
+	public Object getStudentsDetailsWithPendingFees()
+	{
+		return this.studentFessService.getStudentsDetailsWithPendingFees();
+	}
 }

@@ -15,5 +15,7 @@ public interface FeesService {
 	public List<Fees> getStudentsWithPendingFeesByBatchId();
 	public List<Fees> getAllStudentFess();
 	public List<Fees> getFeesByDuration(Date fromDate, Date toDate);
+	public Object getStudentFessDetailsById(int sId);
+	public List<Object> getStudentsDetailsWithPendingFees(); 
 	 
 }
