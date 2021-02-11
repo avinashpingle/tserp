@@ -1,49 +1,53 @@
 package com.testingshastra.erp.entity;
 
-import java.util.Date;
+import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+
 @Entity
 public class Student {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	private String fname;
-	private String lname;
-	private String email;
+	private String firstName;
+	private String lastName;
+	private String emailId;
 	private String phone;
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date dob;
-	private String batch_code;
-	private float fees_balance;
-	private int fees_history;
-	
+	private int batchId;
+	private float feesBalance;
+	private int courseId;
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getFname() {
-		return fname;
+	public String getFirstName() {
+		return firstName;
 	}
-	public void setFname(String fname) {
-		this.fname = fname;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
-	public String getLname() {
-		return lname;
+	public String getLastName() {
+		return lastName;
 	}
-	public void setLname(String lname) {
-		this.lname = lname;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
-	public String getEmail() {
-		return email;
+	public String getEmailId() {
+		return emailId;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
 	}
 	public String getPhone() {
 		return phone;
@@ -57,30 +61,31 @@ public class Student {
 	public void setDob(Date dob) {
 		this.dob = dob;
 	}
-	public String getBatch_code() {
-		return batch_code;
+	public int getBatchId() {
+		return batchId;
 	}
-	public void setBatch_code(String batch_code) {
-		this.batch_code = batch_code;
+	public void setBatchId(int batchId) {
+		this.batchId = batchId;
 	}
-	public float getFees_balance() {
-		return fees_balance;
+	public float getFeesBalance() {
+		return feesBalance;
 	}
-	public void setFees_balance(float fees_balance) {
-		this.fees_balance = fees_balance;
+	public void setFeesBalance(float feesBalance) {
+		this.feesBalance = feesBalance;
 	}
-	public int getFees_history() {
-		return fees_history;
+	public int getCourseId() {
+		return courseId;
 	}
-	public void setFees_history(int fees_history) {
-		this.fees_history = fees_history;
+	public void setCourseId(int courseId) {
+		this.courseId = courseId;
 	}
 	@Override
 	public String toString() {
-		return "Student [id=" + id + ", fname=" + fname + ", lname=" + lname + ", email=" + email + ", phone=" + phone
-				+ ", dob=" + dob + ", batch_code=" + batch_code + ", fees_balance=" + fees_balance + ", fees_history="
-				+ fees_history + "]";
+		return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", emailId=" + emailId
+				+ ", phone=" + phone + ", dob=" + dob + ", batchId=" + batchId + ", feesBalance=" + feesBalance
+				+ ", courseId=" + courseId + "]";
 	}
+		
 	
 
 }

@@ -11,8 +11,10 @@ public interface CourseService {
 
 	public Course addCourse(Course c);
 
-	Course updateCourse(Course course);
+	public Course updateCourse(Course course);
 
 	public void deleteCourse(String courseId);
+	public List<Course> getAllCourses();
+	
 
 }

@@ -22,7 +22,7 @@ public class StudentController {
 		return this.studentService.getStudents();
 	}
 	
-	@PostMapping(path="/students")
+	@PostMapping(path="/students/addStudent")
 	public void addStudent(@RequestBody Student student) {
 		this.studentService.addStudent(student);
 	}

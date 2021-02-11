@@ -26,7 +26,7 @@ public class StudentServiceImpl implements StudentService {
 
 	@Override
 	public List<Student> getStudent(String name) {
-		return studentDao.findByFname(name);
+		return studentDao.findByFirstName(name);
 	}
 
 	@Override
