@@ -16,7 +16,7 @@ import com.testingshastra.erp.entity.Course;
 import com.testingshastra.erp.services.CourseService;
 
 @RestController
-public class MyController {
+public class CourseController {
 	@Autowired
 	private CourseService courseService;
 
