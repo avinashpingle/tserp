@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.testingshastra.erp.dao.CourseDao;
+import com.testingshastra.erp.dto.CourseDTO;
 import com.testingshastra.erp.entity.Course;
 
 @Service
@@ -23,8 +24,16 @@ public class CourseServiceImpl implements CourseService {
 	}
 
 	@Override
-	public List<Course> getCourses() {
-		return courseDao.findAll();
+	public List<CourseDTO> getCourses() {
+		List<Course> courseList= courseDao.findAll();
+		List<CourseDTO> courseDt=new ArrayList<>();
+		for(Course c: courseList) {
+			CourseDTO course = new CourseDTO();
+			course.setName(c.getCourseName());
+			course.setFees(c.getCourseFees());
+			courseDt.add(course);
+		}
+		return courseDt;
 	}
 
 	@Override

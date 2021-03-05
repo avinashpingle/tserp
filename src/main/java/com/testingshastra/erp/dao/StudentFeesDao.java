@@ -10,7 +10,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import com.testingshastra.erp.entity.Fees;
-public interface StudentFessDao extends CrudRepository<Fees, Integer> {
+public interface StudentFeesDao extends CrudRepository<Fees, Integer> {
 
 	
 	String feesByDuration = "from Fees where datePaid between ?1 and ?2";

@@ -1,0 +1,20 @@
+spring:
+  profiles:
+    active: dev
+    include:
+      - swagger
+  mvc:    view:      prefix: /views/      suffix: .jsp
+  jpa:    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:      ddl-auto: update
+  datasource:    url: jdbc:mysql://localhost/tserp
+    username: root
+    password: 
+    driver-class-name: com.mysql.jdbc.Driver
+  jackson:    serialization:      write-dates-as-timestamps: false
+    date-format: yyyy-MM-dd
+logging:  level:
+    org:
+      hibernate:
+        SQL: debug
+      springframework:
+        web: INFO
