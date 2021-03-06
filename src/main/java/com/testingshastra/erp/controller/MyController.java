@@ -5,6 +5,7 @@ import java.util.List;
 import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.testingshastra.erp.dto.CourseDTO;
 import com.testingshastra.erp.entity.Course;
 import com.testingshastra.erp.services.CourseService;
 
@@ -20,13 +24,17 @@ public class MyController {
 	@Autowired
 	private CourseService courseService;
 
-	@GetMapping("/home")
-	public String home() {
-		return "This is home page";
+	@GetMapping("/")
+	public ModelAndView home(Model model) {
+		System.out.println("Launching homepage");
+		model.addAttribute("successMsg","Welcome to Testing Shastra");
+		ModelAndView mv= new ModelAndView();
+		mv.setViewName("homepage");
+		return mv;
 	}
 
 	@GetMapping("/courses")
-	public List<Course> getCourses() {
+	public List<CourseDTO> getCourses() {
 		return this.courseService.getCourses();
 	}
 

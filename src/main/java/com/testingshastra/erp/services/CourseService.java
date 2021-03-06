@@ -2,10 +2,13 @@ package com.testingshastra.erp.services;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+import com.testingshastra.erp.dto.CourseDTO;
 import com.testingshastra.erp.entity.Course;
 
+@Service
 public interface CourseService {
-	public List<Course> getCourses();
+	public List<CourseDTO> getCourses();
 
 	public Course getCourse(String courseId);
 

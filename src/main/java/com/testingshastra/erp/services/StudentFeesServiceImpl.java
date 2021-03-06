@@ -5,20 +5,19 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.testingshastra.erp.dao.StudentFessDao;
+import com.testingshastra.erp.dao.StudentFeesDao;
 import com.testingshastra.erp.entity.Fees;
 
 @Service
-public class StudentFessServiceImpl implements FeesService  {
+public class StudentFeesServiceImpl implements FeesService  {
 
 	@Autowired
-	StudentFessDao stdfessdao;
+	StudentFeesDao stdfeesdao;
 	
 	
 	@Override
 	public Fees getFeesByStudentId(int id) {
-		Fees stdfees = stdfessdao.findById(id).orElse(null);
+		Fees stdfees = stdfeesdao.findById(id).orElse(null);
 		return stdfees;
 	}
 
@@ -26,48 +25,48 @@ public class StudentFessServiceImpl implements FeesService  {
 	@Override
 	public List<Fees> getAllStudentFess() {
 
-		return (List<Fees>) this.stdfessdao.findAll();
+		return (List<Fees>) this.stdfeesdao.findAll();
 	}
 
 
 	@Override
 	public void payFees(Fees stdfees) 
 	{
-				stdfessdao.save(stdfees);
+		stdfeesdao.save(stdfees);
 	}
 
 
 	@Override
 	public Fees getFeesByDate(Date date) 
 	{
-		return stdfessdao.getByDatePaid(date);
+		return stdfeesdao.getByDatePaid(date);
 	}
 
 
 	@Override
 	public List<Fees> getFeesByDuration(Date fromDate, Date toDate) 
 	{
-		return this.stdfessdao.getByDateDuration(fromDate, toDate);
+		return this.stdfeesdao.getByDateDuration(fromDate, toDate);
 		
 	}
 
 
 	@Override
 	public List<Fees> getStudentsWithPendingFeesByBatchId() {
-		return this.stdfessdao.getStudentsWithPendingFeesByBatchId();
+		return this.stdfeesdao.getStudentsWithPendingFeesByBatchId();
 	}
 
 
 	@Override
 	public Object getStudentFessDetailsById(int sId) {
 		
-		return this.stdfessdao.getStudentFessDetailsById(sId);
+		return this.stdfeesdao.getStudentFessDetailsById(sId);
 	}
 
 
 	@Override
 	public List<Object> getStudentsDetailsWithPendingFees() {
-		return this.stdfessdao.getStudentsDetailsWithPendingFees();
+		return this.stdfeesdao.getStudentsDetailsWithPendingFees();
 	}
 
 
